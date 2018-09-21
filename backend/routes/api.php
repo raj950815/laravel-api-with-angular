@@ -1,7 +1,12 @@
 <?php
+
 Route::group([
+
     'middleware' => 'api',
-], function () {
+  // 'namespace' => 'App\Http\Controllers',
+  // 'prefix' => 'auth'
+
+], function ($router) {
 
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
@@ -10,4 +15,6 @@ Route::group([
     Route::post('me', 'AuthController@me');
     Route::post('sendPasswordResetLink', 'ResetPasswordController@sendEmail');
     Route::post('resetPassword', 'ChangePasswordController@process');
+
 });
+
